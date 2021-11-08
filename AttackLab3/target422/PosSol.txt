@@ -1,0 +1,37 @@
+ox38 is our rsp which is equal to 56 so 56 is fine but what about 57?
+
+
+Phase 3 
+rsp address 0x5566d0b8 add 0x38
+= 5566D0F0
+
+48 c7 c7 f0 d0 66 55 /* rsp +0x38
+5566d0b8 /* OG rsp
+401481 /* memory address of touch 3 
+0x49b69f57 /* cookie address 
+34 39 62 36 39 66 35 37  /* cookie address converted in decimal 
+////Phase 3
+
+This is my cookie 0x49b69f57
+
+5566d0b8 + 0x8 + 0x8 +0x38 = 5566D100
+so basically mov it into rdi or just little endian it
+5566D100
+
+00 d1 66 55
+little endian OG rsp
+5566d0b8
+b8 d0 66 55
+now touch 3 memory address in little endian
+401481
+81 14 40
+
+phase 4 //////////////////////////////////////////////////////////////////////
+You need to do something that gets the cookie and moves it to the rdi 
+but you cant inject your own code so gadget
+we need find a move instruction that moves something into another register, that we can then move into rax. we want to put the cookie into this register that will then get moved into rax. By calling pop on the memeory address where cookie is stored and move it into some register say rdx we then want to find an instruction that moves it into rax. so it might look like
+pop rdx 
+mov rdx, rdi
+
+so 40152c is the memory address of the move rdi now plus to bits to it. which equals 40152E in little endian thats 2E 15 40
+Now find pop rax 58 c3 401541 plus 3 to that memory address 401544 in little  . . . 44 15 40
