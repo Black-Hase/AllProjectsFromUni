@@ -1,0 +1,4 @@
+ The function f (x) = tan πx − 6 has a zero at (1/π) arctan 6 ≈ 0.447431543. Let p0 = 0 and p1 = 0.48, and use ten iterations of each of the following methods to approximate this root. Which method is most successful and why?
+a. Bisection method
+b. Method of False Position
+c. Secant method

@@ -1,10 +1,1 @@
-Print out the link list to show that it is a link list 
-x/30x 0x6042e0
-
-
-attack lab
-get buff one 
-return the address of the getbuuf1 fuction
-so put in a long enough string to go past the normal memory and instead will execute something else. enter in the string type 
-touch1()
-phase 5 is 3 times as long as other phases so solve 1-4 to be sitting in a good spot
+The function f (x) = tan πx − 6 has a zero at (1/π) arctan 6 ≈ 0.447431543. Let p0 = 0 and p1 = 0.48, and use ten iterations of each of the following methods to approximate this root. Which method is most successful and why?
