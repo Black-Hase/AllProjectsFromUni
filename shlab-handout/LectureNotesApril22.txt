@@ -1,0 +1,28 @@
+General Cache Org  chapter 6.4
+V tag 012....B-1 
+V is valid bit o12....B-1 B=2^b bytes per chache block
+
+if V is 0 then it is a miss 
+if it is set to 1 then you must go to the offset and get that particular data is tag is matching it is a tes it is a hit then the block offset 
+
+
+Direct-Mapped Chache Simulation
+2^x=16
+ln2^x=ln16
+x=ln16/ln2
+x=ln16-2
+x=4
+
+
+S=2^2 -> C1=2 bit 
+B=2^b -> CO = 1 bit
+E=2^t -> Ct = 1 bit
+
+S=2^4
+B=2
+
+what are the different misses this will be on the exam
+
+write through means you directly write data to RAM
+And Write Back means you write data once evicted 
+

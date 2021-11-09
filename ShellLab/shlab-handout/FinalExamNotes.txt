@@ -1,0 +1,5 @@
+For the exam:
+Need to be able to converst from Vertual memory to physical and then from Physical to ??? SRAM???
+Look at Slides and practice problems from there and Practice Problems
+what are the different misses this will be on the exam chapter 6.4?
+Dirty bit information on exam write address 3 times???

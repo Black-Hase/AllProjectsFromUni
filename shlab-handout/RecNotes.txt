@@ -1,0 +1,50 @@
+./tshref 
+/binsleep 10
+job137 stoped by signal 20
+resume by doing fg 37
+jobs - its out of the process because it finished 
+
+tsh.cc
+different signal that we have to implement 
+
+sigstop handler sigtstp_handler
+stop by sig 20 is gonna be printed
+you can set it up so the same function handles multiple different signals
+
+test out print by doing 
+std::cout <<"called sigtstp_handler/\n" << std:endl;
+you might find things dont print when you expect so do the following because each string going into a buffer and that buffer doesnt nessesarly send that string when you expect but standered flush() will empty that buffer bucket and send it to print
+std::flush();
+include iostream to fix the error for endl
+
+
+so to test this 
+
+ps -a list all processes
+
+kill 55 and that will kill the tsh.cc
+
+kill -20 61 it saspened but sleep 20 is the suspend signal sigtstp is 20
+
+control z tells what stoped and by what
+
+in jobs fgpid 
+
+
+if you havent started yet
+there is a segence of dependencies you must implment one thing first then another
+
+most important things to implement first
+1) the built in comands we did quite first and it is very important background and forground which you may want to wait on 
+2) runing programs
+3) then work on the programs and the hardest will be sig child handler
+4) then go back and do bg and fg background and forground 
+
+
+youll not be totally finished with the handlers by the time you do the other stuff but it is important to start those. The above is a rough outline of how to walk through the lab
+
+use the negative pid to send to everything with that process group id 
+
+ // for every child you creat useing fork methode you want to make sure its in its own seperate group to be able to kill it its extreamlly important to do this. 
+ 
+ sigchild is called when ever a child is ever suspended or 
